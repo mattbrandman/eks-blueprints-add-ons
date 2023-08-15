@@ -13,7 +13,6 @@ spec:
     path: add-ons/kube-prometheus-stack
     targetRevision: {{ .Values.targetRevision }}
     helm:
-      skipCrds: true
       values: |
         kube-prometheus-stack:
           prometheus:
@@ -30,7 +29,6 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
-    - ServerSideApply=true
     retry:
       limit: 1
       backoff:
